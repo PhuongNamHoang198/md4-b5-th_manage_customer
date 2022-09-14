@@ -1,7 +1,6 @@
 package cg.wbd.grandemonstration;
 
 import cg.wbd.grandemonstration.service.CustomerService;
-import cg.wbd.grandemonstration.service.impl.SimpleCustomerServiceImpl;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -16,10 +15,19 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
 
 @Configuration
+// Hibernate  sẽ tự động tìm kiếm các class có annotation @Configuration và tạo ra các bean
+// Hibernate là một framework ORM (Object Relational Mapping) được sử dụng để map các đối tượng Java
+// Hibernate sẽ tự động tạo ra các câu lệnh SQL để thao tác với database
+//Hibernate sẽ tự
+// Hibernate động tạo ra các câu lệnh SQL để thao tác với database
+
+//Hibernate là một framework ORM (Object Relational Mapping) được sử dụng để map các đối tượng Java
 @EnableWebMvc
 @ComponentScan("cg.wbd.grandemonstration")
 public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
     private ApplicationContext appContext;
+    // ApplicationContext là một interface của spring, nó sẽ lưu trữ các bean được tạo ra bởi spring
+
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
@@ -38,6 +46,7 @@ public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
         SpringTemplateEngine templateEngine = new SpringTemplateEngine();
         templateEngine.setTemplateResolver(templateResolver());
         return templateEngine;
+        //
     }
 
     @Bean
@@ -50,8 +59,4 @@ public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
         return templateResolver;
     }
 
-    @Bean
-    public CustomerService customerService() {
-        return new SimpleCustomerServiceImpl();
-    }
 }

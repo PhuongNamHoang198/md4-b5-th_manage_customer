@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
   <meta charset="UTF-8">
   <title>Customer Information</title>
@@ -9,10 +10,12 @@
   <fieldset>
     <legend>Customer Information</legend>
     <input type="hidden" name="id" th:value="${customer.id}">
+
     <table>
       <tr>
         <td>Id</td>
-        <td th:text="${customer.id}"></td>
+<!--        <td th:text="${customer.id}"></td>-->
+        <td th:text="${customer.id}">1</td>
       </tr>
       <tr>
         <td>Name</td>

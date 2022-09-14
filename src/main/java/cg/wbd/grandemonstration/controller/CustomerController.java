@@ -16,8 +16,11 @@ import java.util.List;
 @RequestMapping("customers")
 public class CustomerController {
     @Autowired
+    // autowired là một annotation của spring, nó sẽ tự động tìm kiếm một bean có kiểu CustomerService
     private CustomerService customerService;
-
+    // customerService là một biến của class CustomerController, nó sẽ được khởi tạo bằng cách sử dụng
+// entity là một đối tượng trong java, nó sẽ được lưu trữ trong database
+    // @GetMapping là một annotation của spring, nó sẽ xử lý các request có method là GET
     @GetMapping
     public ModelAndView showList() {
         ModelAndView modelAndView = new ModelAndView("customers/list");

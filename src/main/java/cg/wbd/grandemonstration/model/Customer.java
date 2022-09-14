@@ -1,6 +1,21 @@
 package cg.wbd.grandemonstration.model;
 
+import org.hibernate.annotations.Table;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+@Table(appliesTo = "customer")
+// @Table(appliesTo = "customer", comment = "Customer information")
+
 public class Customer implements Cloneable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    // strategy để tăng tự động
+    // GenerationType.IDENTITY là một strategy của JPA, nó sẽ tạo một cột tự động tăng trong database
     private Long id;
     private String name;
     private String email;
@@ -73,4 +88,5 @@ public class Customer implements Cloneable {
                 ", address='" + address + '\'' +
                 '}';
     }
+
 }
